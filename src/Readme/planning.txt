@@ -1,0 +1,48 @@
+install tailwindCSS :
+
+1.npm i -D tailwindcss (npm install -D tailwindcss postcss autoprefixer)
+2.npx init tailwindcss(npx tailwindcss init -p)
+3.npm i @craco/craco (To overWrite the postCSS file (in the sense overwrite tailwindCSS))
+
+otherwise :
+1.Go to and Gothrogh this link
+2. https://tailwindcss.com/docs/guides/vite#react
+
+
+
+PLANNING:
+1.we need a reuable carousel :
+    * Hero carousel
+    * common carousel
+    * cast and crew  small carousel
+
+2.Pages:
+    * Home Page
+    * Movie Page
+    * Catagories Page
+    * Auth Page
+    * Razo pay gatway
+
+3.Plan -> How are we buliding it ???💘
+    * Layouts
+    * Routes
+    * Pages
+    * Components
+
+(HOC - Higher Order Components💥)
+
+
+[
+    Layouts First Approach :
+    Onely if you have same navbar for every page==>
+    1.which Optimise the react code as well as rendering time .
+    2.we need create center content Components only for rendering again and agin.
+    3.Oue website Layouts no need to rendering again again which renders only once.
+    4.which will manage our time
+
+    different navbar for differrent page:
+    1.we can use same above logics
+    2.For chaniging nanbar 
+      *  we can create different components
+      *  we can create different Layouts
+]
