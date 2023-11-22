@@ -1,9 +1,6 @@
 import React from "react";
 import HeroSlider from 'react-slick'
-
-// Import css files
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { NextArrow,PrevArrow } from "./Arrow.component";
 
 
 const HeroCarousel = () =>{
@@ -14,7 +11,9 @@ const HeroCarousel = () =>{
         slidesToShow: 1,
         infinite: true,
         speed: 500,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        nextArrow:<NextArrow/>,
+        prevArrow:<PrevArrow/>
     }
     const settings = {
         arrows:true,
@@ -23,7 +22,9 @@ const HeroCarousel = () =>{
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        nextArrow:<NextArrow/>,
+        prevArrow:<PrevArrow/>
       };
     const images =[
         "https://images.unsplash.com/photo-1498708024051-b1838ad1a1d8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",        "https://images.unsplash.com/photo-1691573155562-bb83d1237f23?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -37,8 +38,8 @@ const HeroCarousel = () =>{
             <HeroSlider {...settings}>
             {images.map((image,index)=>{
                 return( <>
-                <div className="w-full h-56 md:h-80 rounded-md py-3" >
-                    <img src={image} alt="testing" className="w-full h-full  "/>
+                <div className="w-full h-56 md:h-80 rounded-md py-3" key={index}>
+                    <img src={image} alt={`testing ${index+1}`} className="w-full h-full  "/>
                 </div> </>)
             })}
          </HeroSlider>
@@ -47,8 +48,8 @@ const HeroCarousel = () =>{
             <HeroSlider {...settingsLG}>
             {images.map((image,index)=>{
                 return( <>
-                <div className="w-200 h-96 rounded-md px-2 py-3" >
-                    <img src={image} alt="testing" className="w-full h-full rounded-md"/>
+                <div className="w-200 h-96 rounded-md px-2 py-3"key={index}>
+                    <img src={image} alt={`testing ${index+1}`} className="w-full h-full rounded-md"/>
                 </div> </>)
             })}
          </HeroSlider>
