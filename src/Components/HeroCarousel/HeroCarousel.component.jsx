@@ -1,16 +1,33 @@
 import React from "react";
 import HeroSlider from 'react-slick'
+import axios from 'axios'
 import { NextArrow,PrevArrow } from "./Arrow.component";
+import { useState } from "react";
+import { useEffect } from "react";
+import tmdb from "../Api/tmdb";
+
 
 
 const HeroCarousel = () =>{
+
+    const [images,setImages]=useState([])
+
+    useEffect( ()=>{
+        //async
+        const resGetAllImages=async()=>{
+            const getImages = await tmdb.get('/movie/now_playing')
+        setImages(getImages.data.results)
+        }
+        resGetAllImages()
+    },[])
+
     const settingsLG={
         arrows:true,
         centerMode:true,
         centerPadding:"100px",
-        slidesToShow: 1,
+        slidesToShow: 3,
         infinite: true,
-        speed: 500,
+        speed: 100,
         slidesToScroll: 1,
         nextArrow:<NextArrow/>,
         prevArrow:<PrevArrow/>
@@ -26,12 +43,6 @@ const HeroCarousel = () =>{
         nextArrow:<NextArrow/>,
         prevArrow:<PrevArrow/>
       };
-    const images =[
-        "https://assets-in.bmscdn.com/promotions/cms/creatives/1698603955302_web.jpg",
-        "https://assets-in.bmscdn.com/promotions/cms/creatives/1700717967337_oppenheimerweb.jpg",
-        "https://assets-in.bmscdn.com/promotions/cms/creatives/1700146033284_webpage.jpg",
-        
-    ];
       return(
         <>
             <div className="lg:hidden">
@@ -39,7 +50,7 @@ const HeroCarousel = () =>{
             {images.map((image,index)=>{
                 return( <>
                 <div className="w-full h-56 md:h-80 rounded-md py-3" key={index}>
-                    <img src={image} alt={`testing ${index+1}`} className="w-full h-full  "/>
+                    <img src={`https://www.themoviedb.org/t/p/original${image.backdrop_path}`} alt={`testing ${index+1}`} className="w-full h-full  "/>
                 </div> </>)
             })}
          </HeroSlider>
@@ -49,7 +60,7 @@ const HeroCarousel = () =>{
             {images.map((image,index)=>{
                 return( <>
                 <div className="w-200 h-96 rounded-md px-2 py-3"key={index}>
-                    <img src={image} alt={`testing ${index+1}`} className="w-full h-full rounded-md"/>
+                    <img src={`https://www.themoviedb.org/t/p/original${image.backdrop_path}`} alt={`testing ${index+1}`} className="w-full h-full rounded-md"/>
                 </div> </>)
             })}
          </HeroSlider>

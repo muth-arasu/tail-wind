@@ -45,4 +45,13 @@ PLANNING:
     2.For chaniging nanbar 
       *  we can create different components
       *  we can create different Layouts
+
+    npm Packages:
+    1.tailwindCSS
+    2.react-icons
+    3.react-slick
+    4.@headlessui/react
+   
+    colour software --> smart swatch
+    
 ]

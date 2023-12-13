@@ -7,8 +7,10 @@ import Poster from '../Components/Poster/Poster.Component';
 import PosterCarouselSettings from '../config/PosterCarousel.Config';
 
 
-
 const PosterSlider = (props) => {
+    console.log(props.config);
+const sliderConfigs = props.config?props.config:PosterCarouselSettings;
+
     return (
         <>
             <div className='flex flex-col gap-3'>
@@ -17,7 +19,7 @@ const PosterSlider = (props) => {
                     <h3 className="text-xl font-bold text-white">{props.title}</h3>
                     <p className="text-white" >{props.sub}</p>
                 </div>
-                <Slider {...PosterCarouselSettings} >
+                <Slider {...sliderConfigs} >
                     {
                         props.images.map((image,index) => {
                             return (

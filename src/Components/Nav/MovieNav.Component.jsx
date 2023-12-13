@@ -52,11 +52,11 @@ const NavLg = () => {
 function MovieNavbar() {
     return (
         <>
-            <nav className='bg-grayss-700 p-4'>
+            <nav className=' absolute inset-x-0 z-30 bg-opacity-10 backdrop-filter backdrop-blur-lg lg:relative lg:bg-grayss-700 p-4'>
                 <div className='md:hidden p-4'>{/* Mobile Device */}
                     <NavSm />
                 </div>
-                <div className='hidden md:flex lg:hidden '>
+                <div className='hidden md:block lg:hidden '>
                     {/* Tablet Device */}
                     <NavSm />
                 </div>
