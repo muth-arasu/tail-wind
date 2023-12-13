@@ -2,17 +2,23 @@ import React from 'react'
 import { BiChevronRight } from 'react-icons/bi';
 import { FaStar } from "react-icons/fa6";
 import { LuDot } from "react-icons/lu";
+//movie context
+import { useContext } from 'react'
+import { MovieContext } from '../../Context/movie.context'
 
 const MovieContent = () => {
+  const {movie}=useContext(MovieContext)
+  const genres = movie.genres?.map(({name})=>name).join(", ")
+
   return (
     <>
       <div className='lg:w-auto lg:flex lg:flex-col lg:gap-3 sm:flex flex-col gap-3 items-center' >
-      <div><h1 className='lg:text-4xl text-3xl text-white font-bold'>Avegers EndGame</h1></div>
+      <div><h1 className='lg:text-4xl text-3xl text-white font-bold'>{movie.title}</h1></div>
       <div className='flex items-center gap-3 '>
         <span className='w-6 h-42'><FaStar className='colored-icon w-full h-full' /></span>
-        <h2 className='text-2xl text-white font-medium'>8.4/10</h2>
+        <h2 className='text-2xl text-white font-medium'>{((movie.vote_average/1).toFixed(1))}/10</h2>
         <div className='flex items-center text-white  '>
-          <p className='text-xl '>8.5K Votes</p>
+          <p className='text-xl '>{((movie.vote_count/1000).toFixed(1))}K</p>
           <span className='w-6 h-8 mr-5 txt-xl mt-1'><BiChevronRight className='text-grayss-400 w-full h-full' /></span>
         </div>
 
@@ -28,11 +34,11 @@ const MovieContent = () => {
         </div>
       </div>
       <div className='flex gap-3'>
-        <span className='bg-white text-xl px-1 rounded-sm'>HD</span>
-        <span className='bg-white text-xl px-1 rounded-sm'>Hindi</span>
+        <span className='bg-white text-xl px-1 rounded-sm'>4K</span>
+        <span className='bg-white text-xl px-1 rounded-sm'>{movie.original_language}</span>
       </div>
       <div className='lg:flex lg:items-center text-white lg:text-xl sm:text-xs'>
-        <p className='tex-xl'>&bull; 1.54m  &bull;Drama, Thriller &bull;UA <br className='lg:hidden sm:block' />&bull;20 Nov, 2023</p>
+        <p className='tex-xl'>&bull;{((movie.runtime/60).toFixed(2))}h  &bull;{`${genres}`} &bull;UA <br className='lg:hidden sm:block' />&bull;{movie.release_date}</p>
       </div>
       <div >
           <button className='bg-pink-300 w-64 h-12 px-3 py-2 text-center text-xl font-bold text-white sm:flex'>Book Tickets</button>

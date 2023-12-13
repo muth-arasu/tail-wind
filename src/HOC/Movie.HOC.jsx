@@ -1,7 +1,7 @@
 import React from 'react'
 import { Routes,Route} from 'react-router-dom'
 import DefaultLayouts from '../Layouts/Default.Layout'
-import MovieLayout from '../Layouts/Movite.Layout'
+import MovieLayout from '../Layouts/Movie.Layout'
 
 
 const MovieHOC = ({component:Component,...rest }) => {

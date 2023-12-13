@@ -1,7 +1,11 @@
 import React from 'react'
 import MovieContent from './Movie.Content.Component'
+import { useContext } from 'react'
+import { MovieContext } from '../../Context/movie.context'
+
 
 const HeroMovie = () => {
+    const {movie}=useContext(MovieContext)
     return (
         <>
             <div>
@@ -14,9 +18,10 @@ const HeroMovie = () => {
                     </div>
 
 
-                    <img src="https://c4.wallpaperflare.com/wallpaper/361/823/829/avengers-endgame-iron-man-robert-downey-jr-captain-america-chris-evans-hd-wallpaper-preview.jpg"
+                    <img src={`https://www.themoviedb.org/t/p/original${movie.poster_path}`}
                         alt="spiderman" className="w-full h-fll" style={{ height: "calc(180vw)", objectFit: "fill" }} />
                 </div>
+
                 {/* Medium */}
                 <div className='relative hidden md:block w-full lg:hidden' style={{ height: "calc(80vw)" }}>
                     <div className='w-full h-96 absolute bg-black bg-opacity-50  Z-10 bottom-0' >
@@ -24,10 +29,10 @@ const HeroMovie = () => {
                         <MovieContent/>
                         </div>
                         </div>
-
-                    <img src="https://c4.wallpaperflare.com/wallpaper/441/161/104/the-avengers-avengers-endgame-ant-man-avengers-endgame-black-panther-marvel-comics-hd-wallpaper-preview.jpg"
+                    <img src={`https://www.themoviedb.org/t/p/original${movie.poster_path}`}
                         alt="animation" className='w-full h-full' />
                 </div>
+
                 {/* Large */}
                 <div className=' relative hidden w-full lg:block ' style={{ height: "32rem" }} >
                     <div className=' w-full h-full absolute z-10 opacity-75' style={{
@@ -36,7 +41,7 @@ const HeroMovie = () => {
                     <div className='absolute z-30 mt-10 ml-32 flex items-center gap-6'>
 
                         <div className=' w-72 h-5/6 rounded-md ' >
-                            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9"
+                    <img src={`https://www.themoviedb.org/t/p/original${movie.poster_path}`}
                                 alt="Poster Image" className='w-full h-full rounded-md' />
                         </div>
                         <div className=''>
@@ -45,7 +50,7 @@ const HeroMovie = () => {
 
                     </div>
 
-                    <img src="https://c4.wallpaperflare.com/wallpaper/441/161/104/the-avengers-avengers-endgame-ant-man-avengers-endgame-black-panther-marvel-comics-hd-wallpaper-preview.jpg"
+                    <img src={`https://www.themoviedb.org/t/p/original${movie.backdrop_path}`}
                         alt="Avenger" className='w-full h-full' />
 
                 </div>

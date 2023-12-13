@@ -8,7 +8,6 @@ import PosterCarouselSettings from '../config/PosterCarousel.Config';
 
 
 const PosterSlider = (props) => {
-    console.log(props.config);
 const sliderConfigs = props.config?props.config:PosterCarouselSettings;
 
     return (

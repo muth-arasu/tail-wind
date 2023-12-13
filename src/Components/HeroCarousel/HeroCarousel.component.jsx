@@ -24,8 +24,8 @@ const HeroCarousel = () =>{
     const settingsLG={
         arrows:true,
         centerMode:true,
-        centerPadding:"100px",
-        slidesToShow: 3,
+        centerPadding:"150px",
+        slidesToShow: 1,
         infinite: true,
         speed: 100,
         slidesToScroll: 1,
