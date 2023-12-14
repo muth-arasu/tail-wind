@@ -27,9 +27,10 @@ const Movie = () => {
 
   useEffect(() => {
     const resGetAllCast = async () => {
-      const getAllCast = await tmdb.get(`/person/${id}/movie_credits`)
-      console.log(getAllCast);
+      const getAllCast = await tmdb.get(`movie/${id}/credits`)
+      console.log(getAllCast.data)
       setCast(getAllCast.data.cast)
+      setCrew(getAllCast.data.crew)
 
     }
     resGetAllCast()
@@ -160,11 +161,12 @@ const Movie = () => {
           <div className='my-4'>
             <h1 className='text-2xl text-grayss-800 font-bold '>Cast</h1>
           </div>
+          
           <Slider {...settingsCast}>
             {cast.map((castData) => {
               return (<>
-                <CastCrew img={`https://www.themoviedb.org/t/p/original${castData.poster_path}`}
-                  name={castData.title}
+                <CastCrew img={`https://www.themoviedb.org/t/p/original${castData.profile_path}`}
+                  name={castData.original_name}
                   role={castData.character}
                 />
               </>)
@@ -172,23 +174,23 @@ const Movie = () => {
 
             })}
           </Slider>
-          {/* 
+          
           <div className='my-4'>
             <h1 className='text-2xl text-grayss-800 font-bold '>Crew</h1>
           </div>
 
           <Slider {...settingsCast}>
-                 { cast.map((castData)=>{
+                 { crew.map((crewData)=>{
                   return(<>
-                  <CastCrew  img={`https://www.themoviedb.org/t/p/original${castData.poster_path}`}               
-                              name={castData.title}
-                               role={castData.character}
+                  <CastCrew  img={`https://www.themoviedb.org/t/p/original${crewData.profile_path}`}               
+                              name={crewData.original_name}
+                               role={crewData.job}
                                  />
                   </>)
                               
                          
                   })}
-              </Slider> */}
+              </Slider> 
 
           <div className='mt-6'>
             <h1 className='text-2xl text-grayss-800 font-bold '>You May Like</h1>

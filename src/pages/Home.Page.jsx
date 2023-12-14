@@ -36,7 +36,7 @@ const Home = () => {
     useEffect(()=>{
         const res = async ()=>{
             const getTopMovies=await tmdb.get('/movie/top_rated')
-            console.log(getTopMovies)
+            // console.log(getTopMovies)
             setTopMovies(getTopMovies.data.results)
         }
         res()

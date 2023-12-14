@@ -2,16 +2,29 @@ import React from 'react'
 import { BiChevronRight } from 'react-icons/bi';
 import { FaStar } from "react-icons/fa6";
 import { LuDot } from "react-icons/lu";
+//component
+import PaymentModel from '../PaymentModel/Payment.Component';
+
 //movie context
 import { useContext } from 'react'
 import { MovieContext } from '../../Context/movie.context'
+import { useState } from 'react';
 
 const MovieContent = () => {
   const {movie}=useContext(MovieContext)
   const genres = movie.genres?.map(({name})=>name).join(", ")
+  const [isOpen,setIsOpen]=useState(false)
+  const [price,setPrice]=useState(false)
+
+  const bookTickets =()=>{
+    setIsOpen(true)
+    setPrice(199)
+  }
 
   return (
     <>
+      <PaymentModel isOpen={isOpen} setIsOpen={setIsOpen} price={price} />
+
       <div className='lg:w-auto lg:flex lg:flex-col lg:gap-3 sm:flex flex-col gap-3 items-center' >
       <div><h1 className='lg:text-4xl text-3xl text-white font-bold'>{movie.title}</h1></div>
       <div className='flex items-center gap-3 '>
@@ -41,7 +54,7 @@ const MovieContent = () => {
         <p className='tex-xl'>&bull;{((movie.runtime/60).toFixed(2))}h  &bull;{`${genres}`} &bull;UA <br className='lg:hidden sm:block' />&bull;{movie.release_date}</p>
       </div>
       <div >
-          <button className='bg-pink-300 w-64 h-12 px-3 py-2 text-center text-xl font-bold text-white sm:flex'>Book Tickets</button>
+          <button onClick={bookTickets} className='bg-pink-300 w-64 h-12 px-3 py-2 text-center text-xl font-bold text-white sm:flex'>Book Tickets</button>
       </div>
       </div>
     </>
