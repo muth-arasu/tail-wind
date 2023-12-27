@@ -10,9 +10,9 @@ const HeroMovie = () => {
         <>
             <div>
                 {/* Mobile */}
-                <div className='relative md:hidden w-full' style={{ height: "calc(180)" }}>
-                    <div className='w-full absolute bg-black bg-opacity-50  Z-10 bottom-0'style={{ height: "calc(100vw)" }} >
-                        <div className='py-16 '>
+                <div className='relative md:hidden w-full' style={{ height: "calc(100)" }}>
+                    <div className='w-full absolute bg-black bg-opacity-50  Z-10 bottom-0'style={{ height: "calc(80vw)" }} >
+                        <div className='py-2 '>
                         <MovieContent/>
                         </div>
                     </div>
@@ -23,9 +23,9 @@ const HeroMovie = () => {
                 </div>
 
                 {/* Medium */}
-                <div className='relative hidden md:block w-full lg:hidden' style={{ height: "calc(80vw)" }}>
-                    <div className='w-full h-96 absolute bg-black bg-opacity-50  Z-10 bottom-0' >
-                    <div className='ml-12 mt-6'>
+                <div className='relative hidden md:block w-full lg:hidden' style={{ height: "calc(70vw)" }}>
+                    <div className='w-full h-84 absolute bg-black bg-opacity-50  Z-10 bottom-0' >
+                    <div className='ml-12 mb-3 mt-3 '>
                         <MovieContent/>
                         </div>
                         </div>
