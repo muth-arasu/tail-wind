@@ -1,6 +1,9 @@
 import React from 'react'
 import { BsChevronRight } from "react-icons/bs";
 import { BiChevronDown, BiChevronRight, BiMenu, BiSearch } from "react-icons/bi";
+import images from '../../assets';
+
+
 
 
 const NavSm = () => {
@@ -36,11 +39,10 @@ const NavLg = () => {
         <>
             <div className='container mx-auto px-4 flex items-center justify-between'>
                 <div className='flex items-center w-3/5 gap-3'>
-                    <div className='w-10 h-10 rounded'>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDqOxeIYlGd4apACoboR3-qJ7gKYxMapCtgw&usqp=CAU"
-                            alt="website logo" className='w-full h-full rounded' />
+                    <div className='w-24 h-12 '>
+                        <img src={images.logo} alt="website logo" className='w-full h-full rounded' />
                     </div>
-                    <div className='w-full flex items-center gap-3 bg-white px-3 py-2 rounded-md'>
+                    <div className='w-full flex itpems-center gap-3 bg-white px-3 py-2 rounded-md'>
                         <BiSearch className='w-6 h-6' />
                         <input type="search" className='w-full bg-transparent border-none focus:outline-none '
                             placeholder='Search for Movies, Event, Plays, Sports and Activities' />
